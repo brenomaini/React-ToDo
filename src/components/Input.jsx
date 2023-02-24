@@ -1,7 +1,14 @@
 import React from "react";
 
-function Input({ name }) {
-  return <input type="checkbox" className={`peer sr-only`} id={name} />;
+function Input({ name, itemDone }) {
+  return (
+    <input
+      type="checkbox"
+      className={`peer sr-only`}
+      id={name}
+      ref={itemDone}
+    />
+  );
 }
 
 export default Input;
