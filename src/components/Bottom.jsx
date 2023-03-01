@@ -20,7 +20,7 @@ function Bottom({
           />
           <label
             htmlFor="TaskAll"
-            className="peer-checked:font-extrabold peer-checked:text-white cursor-pointer"
+            className="text-slate-400 peer-checked:font-extrabold hover:font-bold peer-checked:dark:text-white cursor-pointer peer-checked:text-blue-500"
           >
             All
           </label>
@@ -35,7 +35,7 @@ function Bottom({
           />
           <label
             htmlFor="TaskActive"
-            className="peer-checked:font-extrabold peer-checked:text-white cursor-pointer"
+            className="text-slate-400  peer-checked:font-extrabold hover:font-bold peer-checked:dark:text-white cursor-pointer peer-checked:text-blue-500"
           >
             Active
           </label>
@@ -50,7 +50,7 @@ function Bottom({
 
           <label
             htmlFor="TaskComplete"
-            className="peer-checked:font-extrabold peer-checked:text-white cursor-pointer"
+            className="text-slate-400 peer-checked:font-extrabold hover:font-bold peer-checked:dark:text-white cursor-pointer peer-checked:text-blue-500"
             onClick={showOnlyCompleted}
           >
             Completed
@@ -58,7 +58,7 @@ function Bottom({
         </div>
       </div>
       <div
-        className=" hover:text-white cursor-pointer"
+        className=" hover:font-bold hover:dark:text-white cursor-pointer"
         onClick={deleteCompleted}
       >
         {" "}
