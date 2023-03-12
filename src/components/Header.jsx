@@ -1,7 +1,7 @@
 import React from "react";
 function Header() {
   return (
-    <header className=" bg-[url('./images/bg-desktop-light.jpg')] bg-cover h-80 w-full dark:bg-[url('./images/bg-desktop-dark.jpg')] flex items-center justify-center gap-64">
+    <header className=" bg-[url('/images/bg-desktop-light.jpg')] bg-cover h-80 w-full dark:bg-[url('/images/bg-desktop-dark.jpg')] flex items-center justify-center gap-64">
       <h1 className="text-white text-4xl font-bold tracking-wide max-sm:text-2xl max-sm:tracking-wide">
         TO DO
       </h1>
