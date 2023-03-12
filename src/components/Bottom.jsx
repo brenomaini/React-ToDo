@@ -1,26 +1,27 @@
-function Bottom({
-  itens,
-  deleteCompleted,
-  showOnlyCompleted,
-  showUndone,
-  showAll,
-}) {
+import React from "react";
+
+function Bottom(props) {
+  function CountDone() {
+    let count = props.listaTarefas.filter((tarefa) => tarefa.done == false);
+    return <div>{count.length} Itens Left</div>;
+  }
   return (
-    <div className="flex mb-3 justify-between gap-12 text-xs p-1 text-slate-600 w-full font-medium">
-      <div className="  "> {itens} Items Left</div>
-      <div className="flex items-center justify-around w-1/3">
+    <div className="flex items-center justify-between w-full p-4 text-slate-600 font-medium max-sm:text-xs">
+      <CountDone />
+      <div className="flex items-center justify-between gap-4 m-4">
         <div>
           <input
             type="radio"
-            name="tasksRadio"
-            id="TaskAll"
+            name="itemToShow"
+            id="All"
+            hidden
             defaultChecked
-            className="sr-only peer"
-            onClick={showAll}
+            className="peer"
           />
           <label
-            htmlFor="TaskAll"
-            className="text-slate-400 peer-checked:font-extrabold hover:font-bold peer-checked:dark:text-white cursor-pointer peer-checked:text-blue-500"
+            htmlFor="All"
+            className="hover:text-white cursor-pointer peer-checked:text-blue-500"
+            onClick={() => props.onFilter("All")}
           >
             All
           </label>
@@ -28,14 +29,15 @@ function Bottom({
         <div>
           <input
             type="radio"
-            name="tasksRadio"
-            id="TaskActive"
-            className="sr-only peer"
-            onClick={showUndone}
+            name="itemToShow"
+            id="Active"
+            hidden
+            className="peer"
           />
           <label
-            htmlFor="TaskActive"
-            className="text-slate-400  peer-checked:font-extrabold hover:font-bold peer-checked:dark:text-white cursor-pointer peer-checked:text-blue-500"
+            htmlFor="Active"
+            className="hover:text-white cursor-pointer peer-checked:text-blue-500"
+            onClick={() => props.onFilter("Active")}
           >
             Active
           </label>
@@ -43,25 +45,27 @@ function Bottom({
         <div>
           <input
             type="radio"
-            name="tasksRadio"
-            id="TaskComplete"
-            className="sr-only peer"
+            name="itemToShow"
+            id="Completed"
+            hidden
+            className="peer"
           />
-
           <label
-            htmlFor="TaskComplete"
-            className="text-slate-400 peer-checked:font-extrabold hover:font-bold peer-checked:dark:text-white cursor-pointer peer-checked:text-blue-500"
-            onClick={showOnlyCompleted}
+            htmlFor="Completed"
+            className="hover:text-white cursor-pointer peer-checked:text-blue-500"
+            onClick={() => props.onFilter("Completed")}
           >
             Completed
           </label>
         </div>
       </div>
+
       <div
-        className=" hover:font-bold hover:dark:text-white cursor-pointer"
-        onClick={deleteCompleted}
+        className="hover:text-white cursor-pointer"
+        onClick={() => {
+          props.onDeleteAll();
+        }}
       >
-        {" "}
         Clear Completed
       </div>
     </div>
